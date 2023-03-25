@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://your-git-repo-url.git
+    repoURL: https://github.com/walasee/kubernetes-monitoring
     targetRevision: HEAD
-    path: your-git-repo-folder
+    path: grafana-agent-deployment
     kustomize: {}
   destination:
     server: https://kubernetes.default.svc
