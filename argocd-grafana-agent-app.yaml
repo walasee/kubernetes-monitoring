@@ -1,0 +1,18 @@
+# argocd-grafana-agent-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-agent
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://your-git-repo-url.git
+    targetRevision: HEAD
+    path: your-git-repo-folder
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: grafana
+  syncPolicy:
+    automated: {}
