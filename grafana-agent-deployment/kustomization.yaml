@@ -5,5 +5,17 @@ resources:
   - agent.bare.yaml
   - grafana-agent-logs-configmap.yaml
   - agent-loki.yaml
-  - kube-state-metrics/kustomization.yaml
-  - prometheus-node-exporter/kustomization.yaml
+
+helmCharts:
+  - name: kube-state-metrics
+    repo: https://prometheus-community.github.io/helm-charts
+    version: v2.4.2
+    releaseName: ksm
+    namespace: grafana
+    valuesFile: kube-state-metrics/values.yaml
+
+  - name: prometheus-node-exporter
+    repo: https://prometheus-community.github.io/helm-charts
+    releaseName: nodeexporter
+    namespace: grafana
+    valuesFile: prometheus-node-exporter/values.yaml
