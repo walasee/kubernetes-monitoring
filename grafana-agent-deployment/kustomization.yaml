@@ -5,3 +5,5 @@ resources:
   - agent.bare.yaml
   - grafana-agent-logs-configmap.yaml
   - agent-loki.yaml
+  - grafana-agent-configmap.yaml
+  - grafana-agent-namespace.yaml
