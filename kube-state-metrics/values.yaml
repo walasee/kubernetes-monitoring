@@ -1,3 +1,0 @@
-# kube-state-metrics/values.yaml
-image:
-  tag: v2.4.2
