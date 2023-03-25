@@ -1,4 +1,3 @@
-# argocd-grafana-agent-app.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,10 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/walasee/kubernetes-monitoring
+    repoURL: <your-repo-url>
     targetRevision: HEAD
     path: grafana-agent-deployment
-    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana

@@ -1,8 +1,20 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-helmChartInflationGenerator:
-- chartName: prometheus-node-exporter
-  repo: https://prometheus-community.github.io/helm-charts
-  releaseName: nodeexporter
-  namespace: grafana
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-node-exporter
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <your-repo-url>
+    targetRevision: HEAD
+    helm:
+      name: prometheus-node-exporter
+      version: v1.18.3
+      valueFiles:
+        - prometheus-node-exporter/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: grafana
+  syncPolicy:
+    automated: {}
